@@ -15,7 +15,7 @@ set -euo pipefail
 
 # ── Config — update GITHUB_REPO before pushing to GitHub ─────────────────────
 GITHUB_USER="yourzero"
-GITHUB_REPO="fish-utils"
+GITHUB_REPO="linux-command-utils-fish"
 GITHUB_BRANCH="main"
 GITHUB_RAW="https://raw.githubusercontent.com/$GITHUB_USER/$GITHUB_REPO/$GITHUB_BRANCH"
 

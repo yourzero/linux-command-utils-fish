@@ -1,18 +1,18 @@
-# fish-utils
+# linux-command-utils-fish
 
 71 fish shell quick-command functions for Unraid, covering GPU monitoring, Docker, networking, disk, git, logs, services, and more. All functions follow a `q<name>` naming convention and support `-h` for usage help.
 
 ## Quick install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/yourzero/fish-utils/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/yourzero/linux-command-utils-fish/main/install.sh | bash
 ```
 
 Or clone and run locally:
 
 ```bash
-git clone https://github.com/yourzero/fish-utils.git
-cd fish-utils && ./install.sh
+git clone https://github.com/yourzero/linux-command-utils-fish.git
+cd linux-command-utils-fish && ./install.sh
 ```
 
 The installer will prompt before enabling optional features.
@@ -70,5 +70,3 @@ $ qdf -h
 Usage: qdf [path]
   Human-readable df, filtered/sorted. Default path = /
 ```
-# linux-command-utils-fish
-# linux-command-utils-fish

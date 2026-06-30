@@ -114,6 +114,7 @@ fi
 echo
 echo "── Done ─────────────────────────────────────────────────────────────────"
 echo
-echo "  Open a new fish shell and run 'qcheatsheet' to see all available commands."
+fish -c "qcheatsheet"
+echo
 echo "  All commands support -h for usage help."
 echo

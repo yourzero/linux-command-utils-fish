@@ -54,14 +54,9 @@ Filesystem      Size  Used Avail Use% Mounted on
   ↳ qdf — df sorted by usage, no tmpfs noise
 ```
 
-## Unraid persistence
-
-Unraid's root filesystem is a RAM disk rebuilt on every boot. This installer writes functions to `/boot/config/fish/functions/` (on the flash drive) and relies on the existing `/boot/config/go` hook to copy them into place at boot. No changes to `go` are required if the fish config copy block is already present.
-
 ## Requirements
 
-- [fish shell](https://fishshell.com/) installed on the host (version 3.x)
-- Unraid 6.x or later (or any Linux system with `/boot/config/fish/` configured as a persistent fish config source)
+- [fish shell](https://fishshell.com/) 3.x — Linux or macOS
 
 ## All commands support `-h`
 

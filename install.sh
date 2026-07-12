@@ -15,6 +15,7 @@ GITHUB_RAW="https://raw.githubusercontent.com/$GITHUB_USER/$GITHUB_REPO/$GITHUB_
 TARBALL_NAME="fish-functions.tar.gz"
 SUGGEST_NAME="__q_suggest.fish"
 FISH_FUNCTIONS="$HOME/.config/fish/functions"
+FISH_COMPLETIONS="$HOME/.config/fish/completions"
 FISH_CONFIG="$HOME/.config/fish/config.fish"
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -65,9 +66,16 @@ say "Tarball: $TARBALL"
 # ── Install q-functions ───────────────────────────────────────────────────────
 echo
 say "Installing q-functions to $FISH_FUNCTIONS ..."
-mkdir -p "$FISH_FUNCTIONS"
-tar -xzf "$TARBALL" --strip-components=1 -C "$FISH_FUNCTIONS/"
+mkdir -p "$FISH_FUNCTIONS" "$FISH_COMPLETIONS"
+TMP_EXTRACT="$(mktemp -d)"
+tar -xzf "$TARBALL" -C "$TMP_EXTRACT"
+cp "$TMP_EXTRACT"/fish-functions/*.fish "$FISH_FUNCTIONS/"
+if [[ -d "$TMP_EXTRACT/completions" ]]; then
+    cp "$TMP_EXTRACT"/completions/*.fish "$FISH_COMPLETIONS/"
+fi
+rm -rf "$TMP_EXTRACT"
 ok "$(ls "$FISH_FUNCTIONS"/q*.fish 2>/dev/null | wc -l | tr -d ' ') q-functions installed"
+ok "Tab-completion for 'q <category>' installed"
 
 # ── Optional: qcheatsheet at login ───────────────────────────────────────────
 echo

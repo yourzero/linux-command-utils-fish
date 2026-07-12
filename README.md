@@ -1,6 +1,6 @@
 # linux-command-utils-fish
 
-71 fish shell quick-command functions for Linux and macOS, covering GPU monitoring, Docker, networking, disk, git, logs, services, and more. All functions follow a `q<name>` naming convention and support `-h` for usage help.
+72 fish shell quick-command functions for Linux and macOS, covering GPU monitoring, Docker, networking, disk, git, logs, services, and more. All functions follow a `q<name>` naming convention and support `-h` for usage help.
 
 ## Quick install
 
@@ -35,13 +35,32 @@ The installer will prompt before enabling optional features.
 | **NVIDIA GPU** | `qgpu` `qgpuwatch` `qgpuproc` |
 | **vLLM** | `qvllm` `qvllmlog` |
 | **SSH** | `qsshkeys` `qsshagent` |
-| **Misc** | `qenv` `qpath` `qhist` `qalias` `qtime` `qwatch` `qb64` `qjson` `qwhat` `qsum` `qcheatsheet` `qhelp` |
+| **Misc** | `q` `qenv` `qpath` `qhist` `qalias` `qtime` `qwatch` `qb64` `qjson` `qwhat` `qsum` `qcheatsheet` `qhelp` |
 
-Run `qcheatsheet` after install to see all functions with descriptions, or `qhelp` for a grouped reference card.
+Run `qcheatsheet` after install to see all functions with descriptions grouped by category (same grouping as the reference table above), or `qhelp` for a static grouped reference card.
 
 ### Optional: login cheatsheet
 
-The installer can add `qcheatsheet` to your fish login so the reference card appears every time you open a shell or SSH in.
+The installer can add `qcheatsheet` to your fish login so the categorized reference card appears every time you open a shell or SSH in.
+
+### Quick lookup: `q <category>`
+
+Can't remember the exact function name, just which category it's in? `q` looks it up:
+
+```
+$ q docker
+─── Docker ───
+
+  qdps           Running containers, clean format
+  qdpsall        All containers including stopped
+  qdlogs         Tail container logs (last 100 + follow)
+  qdclean        Remove stopped containers, dangling images, unused networks
+  qdstats        Live resource usage for all running containers
+  qdsh           Shell into a running container
+  qdnet          Show Docker networks
+```
+
+Type `q ` and hit `<Tab>` to see and autocomplete the category names (`disk`, `network`, `process`, `logs`, `files`, `git`, `docker`, `services`, `packages`, `gpu`, `vllm`, `ssh`, `misc`) — keep typing to narrow the list, e.g. `q doc<Tab>` completes to `docker`. Partial names also work without tab (`q nvidia`, `q disk`), and if you type an actual command name it'll show you the category it lives in (e.g. `q qdps` → Docker). Run `q` with no arguments to just list the categories.
 
 ### Optional: command suggestions (`__q_suggest`)
 
@@ -193,6 +212,7 @@ Usage: qdf [path]
 
 | Command | Usage | Description |
 |---|---|---|
+| `q` | `q [category]` | Quick lookup: list all commands in a category (tab-completable); no args lists categories |
 | `qenv` | `qenv [filter]` | Environment variables sorted; optional substring filter |
 | `qpath` | `qpath` | `$PATH` entries, one per line with index |
 | `qhist` | `qhist <pattern>` | Search command history for a pattern |

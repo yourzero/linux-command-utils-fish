@@ -1,6 +1,6 @@
 # linux-command-utils-fish
 
-72 fish shell quick-command functions for Linux and macOS, covering GPU monitoring, Docker, networking, disk, git, logs, services, and more. All functions follow a `q<name>` naming convention and support `-h` for usage help.
+73 fish shell quick-command functions for Linux and macOS, covering GPU monitoring, Docker, networking, disk, git, logs, services, and more. All functions follow a `q<name>` naming convention and support `-h` for usage help.
 
 ## Quick install
 
@@ -32,12 +32,12 @@ The installer will prompt before enabling optional features.
 | **Docker** | `qdps` `qdpsall` `qdlogs` `qdclean` `qdstats` `qdsh` `qdnet` |
 | **Services** | `qsvc` `qsvcs` `qsvca` |
 | **Packages** | `qpkg` `qupdate` |
-| **NVIDIA GPU** | `qgpu` `qgpuwatch` `qgpuproc` |
+| **NVIDIA GPU** | `qgpu` `qgpuwatch` `qgpuwatchv` `qgpuproc` |
 | **vLLM** | `qvllm` `qvllmlog` |
 | **SSH** | `qsshkeys` `qsshagent` |
 | **Misc** | `q` `qenv` `qpath` `qhist` `qalias` `qtime` `qwatch` `qb64` `qjson` `qwhat` `qsum` `qcheatsheet` `qhelp` |
 
-Run `qcheatsheet` after install to see all functions with descriptions grouped by category (same grouping as the reference table above), or `qhelp` for a static grouped reference card.
+Run `qcheatsheet` after install to see all functions with descriptions grouped by category (same grouping as the reference table above), or `qhelp` for a static grouped reference card. The full (unfiltered) `qcheatsheet` listing also picks one random command to "feature" at the end, as a nudge to discover functions you don't use often.
 
 ### Optional: login cheatsheet
 
@@ -192,6 +192,7 @@ Usage: qdf [path]
 |---|---|---|
 | `qgpu` | `qgpu` | GPU temperature, load, VRAM usage, and power draw |
 | `qgpuwatch` | `qgpuwatch` | Live GPU stats refreshed every 2 seconds (Ctrl+C to exit) |
+| `qgpuwatchv` | `qgpuwatchv` | Visual live GPU dashboard: bars + sparklines, updates every 2s (Ctrl+C to exit) |
 | `qgpuproc` | `qgpuproc` | Processes currently using the GPU |
 
 ### vLLM
@@ -223,5 +224,5 @@ Usage: qdf [path]
 | `qjson` | `qjson [file]` | Pretty-print JSON from a file or stdin |
 | `qwhat` | `qwhat <cmd>` | `which` location and man page summary for a command |
 | `qsum` | `qsum <file>` | SHA256 checksum of a file |
-| `qcheatsheet` | `qcheatsheet [filter]` | Auto-generated list of every installed function and its description |
+| `qcheatsheet` | `qcheatsheet [filter]` | Auto-generated list of every installed function and its description; unfiltered runs also feature one random command |
 | `qhelp` | `qhelp` | Grouped reference card (static, manually curated) |
